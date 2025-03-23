@@ -1,0 +1,207 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #0a0a0a;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #7d3cff;
+    border-radius: 5px;
+}
+
+/* Navbar Styles */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 20px 0;
+    transition: all 0.3s ease;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    background-color: rgba(20, 20, 20, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 60px;
+    height: 70px;
+    box-shadow: 0 10px 30px rgba(125, 60, 255, 0.15);
+    border: 1px solid rgba(125, 60, 255, 0.2);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    background: linear-gradient(45deg, #7d3cff, #3c9fff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 2px;
+    padding: 0 15px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 5px;
+    background-color: rgba(15, 15, 15, 0.5);
+    border-radius: 40px;
+    padding: 5px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 10px 20px;
+    border-radius: 30px;
+}
+
+.nav-links a:hover {
+    color: #7d3cff;
+    
+}
+.nav-links a{
+    display: inline-block;
+    position: relative;
+  }
+  
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .nav-links a:hover::after {
+    transform: scaleX(1);
+  }
+  
+
+.nav-links a.active {
+    background: linear-gradient(45deg, #7d3cff, #3c9fff);
+    color: #ffffff;
+    box-shadow: 0 5px 15px rgba(125, 60, 255, 0.3);
+}
+
+.theme-toggle {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(15, 15, 15, 0.5);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-left: 15px;
+    border: 1px solid rgba(125, 60, 255, 0.3);
+}
+
+.toggle-circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #7d3cff, #3c9fff);
+    transition: all 0.3s ease;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: #ffffff;
+    margin: 5px;
+    transition: all 0.3s ease;
+    border-radius: 3px;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+    
+    .theme-toggle {
+        margin-right: 15px;
+    }
+    
+    .nav-links {
+        position: fixed;
+        top: 90px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        background-color: rgba(20, 20, 20, 0.95);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        border-radius: 20px;
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        border: 1px solid rgba(125, 60, 255, 0.2);
+    }
+    
+    .nav-links.active {
+        opacity: 1;
+        pointer-events: all;
+    }
+    
+    .nav-links a {
+        margin: 10px 0;
+        width: 100%;
+        text-align: center;
+    }
+    
+    /* Hamburger animation */
+    .hamburger.active div:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 8px);
+        background: linear-gradient(45deg, #7d3cff, #3c9fff);
+    }
+    
+    .hamburger.active div:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .hamburger.active div:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -8px);
+        background: linear-gradient(45deg, #7d3cff, #3c9fff);
+    }
+}

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - My Portfolio</title>
+    <link rel="shortcut icon" type="image/x-icon" href="image.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo"><img src="image.png" width="50px" style="border-radius: 50px;"></div>            <div class="nav-links">
+                <a href="main.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="projects.html">Projects</a>
+                <a href="skills.html">Skills</a>
+                <a href="contact.html" class="active">Contact</a>
+                <a href="blog/index.html">Blog</a>
+            </div>
+            <div class="hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </nav>
+    
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="contact-container">
+            <div class="section-title">
+                <h2>Contact Me</h2>
+                <p>Have a question or want to work together? Feel free to reach out to me through my contact information.</p>
+            </div>
+
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-card info-card-1">
+                        <h3>Contact Information</h3>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Location</h4>
+                                <p>Uttar Pradesh, India</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Email</h4>
+                                <p>forcomputerofchirag@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card info-card-2">
+                        <h3>Connect With Me</h3>
+                        <div class="social-links">
+                            <a href="https://github.com/ChandreshSingh12"><i class="fab fa-github"></i></a>
+                            <a href="https://www.linkedin.com/in/chandresh-singh-032071331/"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://x.com/SinghsChandresh"><i class="fab fa-x"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+            
+            </div>
+        </div>
+    </section>
+<script src="script.js"></script>
+     <script>
+        // // JavaScript for the mobile menu toggle
+        // document.querySelector('.hamburger').addEventListener('click', function() {
+        //     this.classList.toggle('active');
+        //     document.querySelector('.nav-links').classList.toggle('active');
+        // });
+
+        // // Close menu when clicking a link
+        // document.querySelectorAll('.nav-links a').forEach(link => {
+        //     link.addEventListener('click', () => {
+        //         document.querySelector('.hamburger').classList.remove('active');
+        //         document.querySelector('.nav-links').classList.remove('active');
+        //     });
+        // });
+
+        // Form submission animation
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const button = this.querySelector('button[type="submit"]');
+            const originalText = button.textContent;
+            
+            button.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Sending...';
+            
+            // Simulate form submission (replace with actual form submission)
+            setTimeout(() => {
+                button.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+                this.reset();
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                }, 3000);
+            }, 2000);
+        });
+
+        // Add scroll animation for navbar
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(10, 10, 10, 0.95)';
+                navbar.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.2)';
+            } else {
+                navbar.style.background = 'transparent';
+                navbar.style.boxShadow = 'none';
+            }
+        });
+
+        // Add animation for input focus
+        document.querySelectorAll('.form-control').forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.classList.add('focused');
+            });
+            
+            input.addEventListener('blur', function() {
+                if (this.value === '') {
+                    this.parentElement.classList.remove('focused');
+                }
+            });
+        });
+    </script> 
+</body>
+</html>

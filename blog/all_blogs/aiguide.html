@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide to Using AI in Web Development</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../../image.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        /* Main Content Layout */
+        .main-container {
+            max-width: 1200px;
+            margin: 120px auto 60px;
+            padding: 0 20px;
+            display: flex;
+            gap: 30px;
+        }
+
+        /* Blog Content Styles */
+        .blog-container {
+            flex: 1;
+        }
+
+        .blog-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .blog-title {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #7d3cff, #3c9fff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .blog-content {
+            background-color: rgba(20, 20, 20, 0.7);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(125, 60, 255, 0.15);
+            border: 1px solid rgba(125, 60, 255, 0.2);
+        }
+
+        .blog-content h2 {
+            font-size: 28px;
+            margin: 30px 0 20px;
+            color: #7d3cff;
+        }
+
+        .blog-content h2:first-child {
+            margin-top: 0;
+        }
+
+        .blog-content h3 {
+            font-size: 22px;
+            margin: 25px 0 15px;
+            color: #3c9fff;
+        }
+
+        .blog-content p {
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .blog-content strong, .blog-content b {
+            color: #7d3cff;
+            font-weight: 600;
+        }
+
+        .blog-content em, .blog-content i {
+            color: #3c9fff;
+            font-style: italic;
+        }
+
+        .blog-content ul, .blog-content ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+
+        .blog-content li {
+            margin-bottom: 10px;
+        }
+
+        /* Table Styles with improved responsiveness */
+        .blog-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(125, 60, 255, 0.15);
+        }
+
+        .blog-content th {
+            background: linear-gradient(45deg, #7d3cff, #3c9fff);
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+
+        .blog-content td {
+            background-color: rgba(30, 30, 30, 0.7);
+            padding: 15px;
+            border-bottom: 1px solid rgba(125, 60, 255, 0.2);
+        }
+
+        .blog-content tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Create a scrollable container for tables on mobile */
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: 30px 0;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(125, 60, 255, 0.15);
+        }
+
+        .emoji {
+            font-size: 1.2em;
+        }
+
+        /* Profile Sidebar Styles */
+        .profile-sidebar {
+            width: 280px;
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+
+        .profile-card {
+            background-color: rgba(20, 20, 20, 0.7);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(125, 60, 255, 0.15);
+            border: 1px solid rgba(125, 60, 255, 0.2);
+            text-align: center;
+        }
+
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            border: 3px solid transparent;
+            background: linear-gradient(white, white) padding-box,
+                       linear-gradient(45deg, #7d3cff, #3c9fff) border-box;
+            overflow: hidden;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-name {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            background: linear-gradient(45deg, #7d3cff, #3c9fff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .profile-title {
+            font-size: 14px;
+            color: #aaa;
+            margin-bottom: 20px;
+        }
+
+        .profile-bio {
+            font-size: 14px;
+            margin-bottom: 25px;
+            color: #ddd;
+        }
+
+        .profile-stats {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 18px;
+            font-weight: 600;
+            color: #7d3cff;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #aaa;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .social-link {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(125, 60, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background: linear-gradient(45deg, #7d3cff, #3c9fff);
+            transform: translateY(-3px);
+        }
+
+        .profile-cta {
+            background: linear-gradient(45deg, #7d3cff, #3c9fff);
+            border: none;
+            color: white;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .profile-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(125, 60, 255, 0.4);
+        }
+
+        /* Improved Media Queries */
+        @media screen and (max-width: 1024px) {
+            .main-container {
+                flex-direction: column;
+            }
+
+            .profile-sidebar {
+                width: 100%;
+                position: static;
+                margin-bottom: 30px;
+            }
+            
+            .profile-card {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 90px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 90%;
+                background-color: rgba(20, 20, 20, 0.95);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                align-items: center;
+                padding: 20px;
+                border-radius: 20px;
+                opacity: 0;
+                pointer-events: none;
+                transition: all 0.3s ease;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+                border: 1px solid rgba(125, 60, 255, 0.2);
+            }
+
+            .nav-links.active {
+                opacity: 1;
+                pointer-events: all;
+            }
+
+            .nav-links a {
+                margin: 10px 0;
+                width: 100%;
+                text-align: center;
+            }
+
+            /* Hamburger animation */
+            .hamburger.active div:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 8px);
+                background: linear-gradient(45deg, #7d3cff, #3c9fff);
+            }
+
+            .hamburger.active div:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active div:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -8px);
+                background: linear-gradient(45deg, #7d3cff, #3c9fff);
+            }
+
+            .blog-title {
+                font-size: 32px;
+            }
+
+            .blog-content {
+                padding: 25px 20px;
+            }
+
+            .blog-content h2 {
+                font-size: 24px;
+            }
+
+            .blog-content h3 {
+                font-size: 20px;
+            }
+            
+            .blog-content ul, .blog-content ol {
+                padding-left: 20px;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            .main-container {
+                margin: 100px auto 40px;
+                padding: 0 15px;
+            }
+            
+            .blog-title {
+                font-size: 28px;
+            }
+            
+            .blog-content {
+                padding: 20px 15px;
+            }
+            
+            .blog-content h2 {
+                font-size: 22px;
+            }
+            
+            .blog-content h3 {
+                font-size: 18px;
+            }
+            
+            .blog-content p, .blog-content li {
+                font-size: 15px;
+            }
+            
+            .blog-content th, .blog-content td {
+                padding: 10px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo"><img src="../../image.png" width="50px" style="border-radius: 50px;"></div>            <div class="nav-links">
+                <a href="../../main.html">Home</a>
+                <a href="../../about.html">About</a>
+                <a href="../../projects.html">Projects</a>
+                <a href="../../skills.html">Skills</a>
+                <a href="../../contact.html">Contact</a>
+                <a href="../index.html" class="active">Blog</a>
+            </div>
+            <div class="hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content with Blog and Profile -->
+    <div class="main-container">
+        <!-- Blog Content -->
+        <div class="blog-container">
+            <div class="blog-header">
+                <h1 class="blog-title">Guide to Using AI in Web Development</h1>
+            </div>
+            <div class="blog-content">
+                <p>AI is transforming many fields, and <strong>web development</strong> is no exception. With the help of AI, developers can build smarter, faster, and more efficient websites. This guide will walk you through some of the <em>cool</em> ways AI can be used in web development, making the process simpler and more accessible!</p>
+
+                <h2>How AI Can Help in Web Development</h2>
+                <p>AI can assist web developers in many ways, from creating code to predicting user needs. Here are some key areas:</p>
+
+                <h3>1. Code Generation</h3>
+                <p>With AI, you can generate code snippets for HTML, CSS, and JavaScript without writing every line manually. <strong>Tools like GitHub Copilot</strong> or <strong>OpenAI's Codex</strong> can suggest code as you type.</p>
+
+                <h3>2. Predictive Search</h3>
+                <p>AI can enhance user experience by predicting what a user is searching for. Have you noticed how search bars suggest terms as you type? That's AI at work!</p>
+
+                <h3>3. Chatbots and Virtual Assistants</h3>
+                <p>AI-powered <strong>chatbots</strong> can assist visitors on a website in real-time, answering questions, and helping with tasks like account setup or troubleshooting issues.</p>
+
+                <h2>Popular AI Tools for Web Developers</h2>
+                <div class="table-container">
+                    <table>
+                        <tr>
+                            <th>Tool</th>
+                            <th>Purpose</th>
+                            <th>Best For</th>
+                        </tr>
+                        <tr>
+                            <td>GitHub Copilot</td>
+                            <td>Code suggestions</td>
+                            <td>Automating repetitive tasks</td>
+                        </tr>
+                        <tr>
+                            <td>TensorFlow.js</td>
+                            <td>Machine learning in JavaScript</td>
+                            <td>Real-time data processing</td>
+                        </tr>
+                        <tr>
+                            <td>Dialogflow</td>
+                            <td>Building chatbots</td>
+                            <td>Customer service automation</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <h2>Benefits of Using AI in Web Development</h2>
+                <ul>
+                    <li><strong>Faster Development:</strong> AI speeds up the coding process, allowing developers to build websites more quickly.</li>
+                    <li><strong>Improved User Experience:</strong> AI can create personalized, engaging experiences for website visitors.</li>
+                    <li><strong>Reduced Errors:</strong> By suggesting corrections and best practices, AI can help eliminate errors in code.</li>
+                </ul>
+
+                <h2>How to Get Started with AI in Web Development</h2>
+                <p>If you're interested in using AI to enhance your web development projects, here are some steps to get started:</p>
+                <ol>
+                    <li><strong>Choose an AI Tool</strong> that fits your needs, like GitHub Copilot for coding help or TensorFlow.js for machine learning.</li>
+                    <li><strong>Learn Basic AI Concepts:</strong> Understand machine learning, natural language processing (NLP), and other core concepts.</li>
+                    <li><strong>Experiment</strong> with small projects. Try adding a chatbot to your site or predictive search features.</li>
+                </ol>
+
+                <h2>Example of AI in Action</h2>
+                <p>Imagine a website that adjusts content based on each visitor's preferences. <em>If someone is interested in sports, the site displays sports articles</em>. This level of customization is possible thanks to AI.</p>
+
+                <h2>Potential Challenges</h2>
+                <p>While AI is helpful, it has some challenges:</p>
+                <ul>
+                    <li><strong>Privacy Concerns:</strong> AI uses data to predict behavior, raising privacy concerns.</li>
+                    <li><strong>Learning Curve:</strong> AI tools can be complex, so patience is needed to understand them.</li>
+                    <li><strong>Cost:</strong> Some AI tools are costly, especially for smaller projects.</li>
+                </ul>
+
+                <h2>Conclusion</h2>
+                <p>AI offers many exciting possibilities for web developers, allowing them to create more intelligent and responsive websites. Whether you are a beginner or an experienced developer, AI tools can make your work easier, faster and more efficient. So, why not give it a try? <em>Happy coding!</em> 😊</p>
+            </div>
+        </div>
+
+        <!-- Profile Sidebar -->
+        <div class="profile-sidebar">
+            <div class="profile-card">
+                <div class="profile-image">
+                    <img src="../../myimage.jpeg" alt="Profile picture">
+                </div>
+                <h2 class="profile-name">Chandresh Singh</h2>
+                <p class="profile-title">Full Stack Developer & AI Enthusiast</p>
+                <p class="profile-bio">Building modern web applications with a focus on AI integration. Passionate about creating intuitive user experiences.</p>
+                
+                <a href="../../contact.html" class="profile-cta">Contact Me</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simple script to handle the hamburger menu
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

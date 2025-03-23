@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - My Portfolio</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../image.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo"><img src="../image.png" width="50px" style="border-radius: 50px;"></div>            <div class="nav-links">
+                <a href="../main.html">Home</a>
+                <a href="../about.html">About</a>
+                <a href="../projects.html">Projects</a>
+                <a href="../skills.html">Skills</a>
+                <a href="../contact.html">Contact</a>
+                <a href="index.html" class="active">Blog</a>
+            </div>
+            <div class="hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Header -->
+    <header class="blog-header">
+        <div class="container">
+            <h1>My Blog</h1>
+            <p>Thoughts, learnings, and adventures in tech</p>
+        </div>
+    </header>
+
+    <!-- Blog Posts -->
+    <section class="blog-posts">
+        <div class="container">
+            <div class="blog-grid">
+                <!-- Blog Post 1 -->
+                <div class="blog-card">
+                    <div class="blog-card-image">
+                        <img src="all_blogs/aiguid.png" alt="Blog Post 1">
+                    </div>
+                    <div class="blog-card-content">
+                        <h3>Guide to Using AI in Web Development</h3>
+                        <div class="blog-meta">
+                            <span class="date">March 19, 2025</span>
+                            <span class="category">AI & WebDevelopment</span>
+                        </div>
+                        <p>Learn about the use of AI in web development that will transform how you build websites...</p>
+                        <a href="all_blogs/aiguide.html" class="read-more">Read More</a>
+                    </div>
+                </div>
+
+                <!-- Blog Post 2 -->
+                <div class="blog-card">
+                    <div class="blog-card-image">
+                        <img src="all_blogs/importance.png" alt="Blog Post 2">
+                    </div>
+                    <div class="blog-card-content">
+                        <h3>Importance of projects in Web Development</h3>
+                        <div class="blog-meta">
+                            <span class="date">March 24, 2025</span>
+                            <span class="category">Web Development</span>
+                        </div>
+                        <p>Discover the top animation libraries that can bring your website to life...</p>
+                        <a href="all_blogs/importance.html" class="read-more">Read More</a>
+                    </div>
+                </div>
+
+                <!-- Blog Post 3 -->
+                <!-- <div class="blog-card">
+                    <div class="blog-card-image">
+                        <img src="images/blog3.jpg" alt="Blog Post 3">
+                    </div>
+                    <div class="blog-card-content">
+                        <h3>Responsive Design Best Practices</h3>
+                        <div class="blog-meta">
+                            <span class="date">March 5, 2025</span>
+                            <span class="category">Design</span>
+                        </div>
+                        <p>Tips and tricks for creating websites that work perfectly on any device...</p>
+                        <a href="post3.html" class="read-more">Read More</a>
+                    </div>
+                </div> -->
+
+                <!-- Blog Post 4 -->
+                <!-- <div class="blog-card">
+                    <div class="blog-card-image">
+                        <img src="images/blog4.jpg" alt="Blog Post 4">
+                    </div>
+                    <div class="blog-card-content">
+                        <h3>Building Your First React App</h3>
+                        <div class="blog-meta">
+                            <span class="date">February 28, 2025</span>
+                            <span class="category">React</span>
+                        </div>
+                        <p>A step-by-step guide to creating your first application with React...</p>
+                        <a href="post4.html" class="read-more">Read More</a>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">PORTFOLIO</div>
+                <div class="footer-links">
+                    <a href="../main.html">Home</a>
+                    <a href="../about.html">About</a>
+                    <a href="../projects.html">Projects</a>
+                    <a href="../skills.html">Skills</a>
+                    <a href="../contact.html">Contact</a>
+                    <a href="index.html">Blog</a>
+                </div>
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/in/chandresh-singh-032071331/" class="social-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                    </a>
+                    <a href="https://x.com/SinghsChandresh" class="social-icon">
+                        <i class="fab fa-x"></i>
+                    </a>
+                    <a href="https://github.com/ChandreshSingh12" class="social-icon">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 My Portfolio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="../script.js"></script>
+    <script>
+        // Add this script to the bottom of your body tag, after your existing script
+document.addEventListener('DOMContentLoaded', function() {
+    // Apply sequential animation to blog cards
+    const blogCards = document.querySelectorAll('.blog-card');
+    blogCards.forEach((card, index) => {
+        card.style.setProperty('--card-index', index);
+    });
+
+    // Animate elements when they enter viewport
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.animationPlayState = 'running';
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Observe all animated elements
+    const animatedElements = document.querySelectorAll('.blog-card, .blog-header, .blog-header h1, .blog-header p');
+    animatedElements.forEach(el => {
+        el.style.animationPlayState = 'paused';
+        observer.observe(el);
+    });
+});
+    </script>
+</body>
+</html>
