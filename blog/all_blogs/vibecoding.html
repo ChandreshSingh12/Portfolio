@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide to Vibe Coding: The Art of Feel-Good Development</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../../image.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        /* Main Content Layout */
+        .main-container {
+            max-width: 1200px;
+            margin: 120px auto 60px;
+            padding: 0 20px;
+            display: flex;
+            gap: 30px;
+        }
+
+        /* Blog Content Styles */
+        .blog-container {
+            flex: 1;
+        }
+
+        .blog-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .blog-title {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #7d3cff, #3c9fff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .blog-content {
+            background-color: rgba(20, 20, 20, 0.7);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(125, 60, 255, 0.15);
+            border: 1px solid rgba(125, 60, 255, 0.2);
+        }
+
+        .blog-content h2 {
+            font-size: 28px;
+            margin: 30px 0 20px;
+            color: #7d3cff;
+        }
+
+        .blog-content h2:first-child {
+            margin-top: 0;
+        }
+
+        .blog-content h3 {
+            font-size: 22px;
+            margin: 25px 0 15px;
+            color: #3c9fff;
+        }
+
+        .blog-content p {
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .blog-content strong, .blog-content b {
+            color: #7d3cff;
+            font-weight: 600;
+        }
+
+        .blog-content em, .blog-content i {
+            color: #3c9fff;
+            font-style: italic;
+        }
+
+        .blog-content ul, .blog-content ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+
+        .blog-content li {
+            margin-bottom: 10px;
+        }
+
+        /* Table Styles with improved responsiveness */
+        .blog-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(125, 60, 255, 0.15);
+        }
+
+        .blog-content th {
+            background: linear-gradient(45deg, #7d3cff, #3c9fff);
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+
+        .blog-content td {
+            background-color: rgba(30, 30, 30, 0.7);
+            padding: 15px;
+            border-bottom: 1px solid rgba(125, 60, 255, 0.2);
+        }
+
+        .blog-content tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Create a scrollable container for tables on mobile */
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: 30px 0;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(125, 60, 255, 0.15);
+        }
+
+        .emoji {
+            font-size: 1.2em;
+        }
+
+        /* Profile Sidebar Styles */
+        .profile-sidebar {
+            width: 280px;
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+
+        .profile-card {
+            background-color: rgba(20, 20, 20, 0.7);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(125, 60, 255, 0.15);
+            border: 1px solid rgba(125, 60, 255, 0.2);
+            text-align: center;
+        }
+
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            border: 3px solid transparent;
+            background: linear-gradient(white, white) padding-box,
+                       linear-gradient(45deg, #7d3cff, #3c9fff) border-box;
+            overflow: hidden;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-name {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            background: linear-gradient(45deg, #7d3cff, #3c9fff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .profile-title {
+            font-size: 14px;
+            color: #aaa;
+            margin-bottom: 20px;
+        }
+
+        .profile-bio {
+            font-size: 14px;
+            margin-bottom: 25px;
+            color: #ddd;
+        }
+
+        .profile-stats {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 18px;
+            font-weight: 600;
+            color: #7d3cff;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #aaa;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .social-link {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(125, 60, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background: linear-gradient(45deg, #7d3cff, #3c9fff);
+            transform: translateY(-3px);
+        }
+
+        .profile-cta {
+            background: linear-gradient(45deg, #7d3cff, #3c9fff);
+            border: none;
+            color: white;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .profile-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(125, 60, 255, 0.4);
+        }
+
+        /* Improved Media Queries */
+        @media screen and (max-width: 1024px) {
+            .main-container {
+                flex-direction: column;
+            }
+
+            .profile-sidebar {
+                width: 100%;
+                position: static;
+                margin-bottom: 30px;
+            }
+            
+            .profile-card {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 90px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 90%;
+                background-color: rgba(20, 20, 20, 0.95);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                align-items: center;
+                padding: 20px;
+                border-radius: 20px;
+                opacity: 0;
+                pointer-events: none;
+                transition: all 0.3s ease;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+                border: 1px solid rgba(125, 60, 255, 0.2);
+            }
+
+            .nav-links.active {
+                opacity: 1;
+                pointer-events: all;
+            }
+
+            .nav-links a {
+                margin: 10px 0;
+                width: 100%;
+                text-align: center;
+            }
+
+            /* Hamburger animation */
+            .hamburger.active div:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 8px);
+                background: linear-gradient(45deg, #7d3cff, #3c9fff);
+            }
+
+            .hamburger.active div:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active div:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -8px);
+                background: linear-gradient(45deg, #7d3cff, #3c9fff);
+            }
+
+            .blog-title {
+                font-size: 32px;
+            }
+
+            .blog-content {
+                padding: 25px 20px;
+            }
+
+            .blog-content h2 {
+                font-size: 24px;
+            }
+
+            .blog-content h3 {
+                font-size: 20px;
+            }
+            
+            .blog-content ul, .blog-content ol {
+                padding-left: 20px;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            .main-container {
+                margin: 100px auto 40px;
+                padding: 0 15px;
+            }
+            
+            .blog-title {
+                font-size: 28px;
+            }
+            
+            .blog-content {
+                padding: 20px 15px;
+            }
+            
+            .blog-content h2 {
+                font-size: 22px;
+            }
+            
+            .blog-content h3 {
+                font-size: 18px;
+            }
+            
+            .blog-content p, .blog-content li {
+                font-size: 15px;
+            }
+            
+            .blog-content th, .blog-content td {
+                padding: 10px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo"><img src="../../image.png" width="50px" style="border-radius: 50px;"></div>            <div class="nav-links">
+                <a href="../../index.html">Home</a>
+                <a href="../../about.html">About</a>
+                <a href="../../projects.html">Projects</a>
+                <a href="../../skills.html">Skills</a>
+                <a href="../../contact.html">Contact</a>
+                <a href="../index.html" class="active">Blog</a>
+            </div>
+            <div class="hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content with Blog and Profile -->
+    <div class="main-container">
+        <!-- Blog Content -->
+        <div class="blog-container">
+            <div class="blog-header">
+                <h1 class="blog-title">Guide to Vibe Coding: The Art of Feel-Good Development</h1>
+            </div>
+            <div class="blog-content">
+                <p>Vibe coding is about clean, expressive, and fun code.
+                    It is aimed at producing elegant, readable, and effective logic.
+                    The aim is to make coding intuitive and natural.
+                    Good vibe coding combines functionality with beauty.
+                    If the code reads smoothly, the entire project just feels right!</p>
+
+                <h2>What is Vibe Coding?</h2>
+                <p>Vibe coding, an innovative approach that prioritizes developer's creativity and well-being in the fast-paced software development world, is gaining popularity. This unique style of coding involves not only writing code that works, but also ensuring the experience is enjoyable and sustainable, which generates a better product and happier developers.</p>
+
+                <!-- <h3>1. Aesthetic Development Environments</h3>
+                <p>Creating a Desirable Workplace that uses unique fonts, themes, and layouts helps one create a visually exciting workstation that also lessens eye strain from extended coding times.</p> -->
+
+                <h3>1. Flow-State Programming</h3>
+                <p>Vibe coding allows the programmers to enter into a "state of flow" in which time doesn't matter and the programming is done with ease. It could be coding at some hour of the day when you feel most productive, coding in short but intense bursts (e.g., Pomodoro technique), or coding under music.</p>
+
+                <h3>2. Community and Collaboration</h3>
+                <p>By sharing your code and creative journey with others, you will not only help them but also receive an emotional benefit. Code reviews and pair programming provide opportunities to learn and connect, rather than pure quality assurance. </p>
+
+                <h2>Popular Vibe Coding Resources and Tools</h2>
+                <div class="table-container">
+                    <table>
+                        <tr>
+                            <th>Tool</th>
+                            <th>Purpose</th>
+                            <th>Best For</th>
+                        </tr>
+                        <tr>
+                            <td>VS Code + Themes</td>
+                            <td>A customized environment for coding</td>
+                            <td>Creating your ideal aesthetically pleasing workstation</td>
+                        </tr>
+                        <tr>
+                            <td>Lofi Coding Playlists</td>
+                            <td>Background music for focus</td>
+                            <td>Reaching a state of flow when coding</td>
+                        </tr>
+                        <tr>
+                            <td>Figma + Mood Boards</td>
+                            <td>Visual inspiration collection</td>
+                            <td>Creating a mood for your projects</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <h2>Benefits of Vibe Coding</h2>
+                <ul>
+                    <li><strong>Increased Creativity:</strong> You're more likely to think creatively and unconventionally when you're feeling good..</li>
+                    <li><strong>Reduced Burnout:</strong> Developer burnout can be avoided by designing a coding environment that inspires rather than depletes.</li>
+                    <li><strong>Better Code Quality:</strong> Code produced by developers who take pleasure in their work is typically cleaner and more deliberate.</li>
+                </ul>
+
+                <h2>How to Get Started with Vibe Coding</h2>
+                <p>Ready to bring more positive energy to your development process? Here are some steps to get started:</p>
+                <ol>
+                    <li><strong>Personalize Your Environment:</strong> Take the time to personalize your IDE by adding extensions, themes, and fonts that make you happy every time you open it..</li>
+                    <li><strong>Create Coding Rituals:</strong> Create little routines that tell your brain when it's time to code, such as making a special tea or playing a certain song..</li>
+                    <li><strong>Build a Mood Board:</strong>Gather images that exemplify the emotion you wish to convey with your project.</li>
+                </ol>
+
+                <h2>Vibe Coding in Action</h2>
+                <p>Think about creating a meditation app.Instead of jumping straight into coding, you first collect calming color schemes, listen to background noise that enhances the app's functionality, and sketch interface concepts in a notebook using your favorite pen.</em> </p>
+
+                <h2>Potential Challenges</h2>
+                <p>Despite its many benefits, Vibe coding is not always easy.:</p>
+                <ul>
+                    <li><strong>Aesthetics and Functionality:</strong> Don't let the need for vibes distract you from the fundamentals of core functionality.</li>
+                    <li><strong>Team Alignment:</strong> Some team members might not share your vision or recognize the importance of the development experience.</li>
+                    <li><strong>Productivity Concerns:</strong> Some might view time spent on creating the right environment as unnecessary.</li>
+                </ul>
+
+                <h2>Conclusion</h2>
+                <p>Creating a developmental approach that recognizes we are human beings and not simply computer programs is vibe coding. It's more than a trend. By producing spaces and processes that feel good, we are creating a better work experience and having fun! Whether you are an experienced professional or new to coding, incorporating elements of vibe coding to your programming practice will reframe your relationship with coding. <em>Happy vibes!  ✨</p>
+            </div>
+            <a href="https://x.com/SinghsChandresh" style="color: #3c9fff; display: flex; justify-content: center;">Contact me on X</a>
+        </div>
+
+        <!-- Profile Sidebar -->
+        <div class="profile-sidebar">
+            <div class="profile-card">
+                <div class="profile-image">
+                    <img src="../../myimage.jpeg" alt="Profile picture">
+                </div>
+                <h2 class="profile-name">Chandresh Singh</h2>
+                <p class="profile-title">Full Stack Developer & AI Enthusiast</p>
+                <p class="profile-bio">Building modern web applications with a focus on AI integration. Passionate about creating intuitive user experiences.</p>
+                
+                <a href="../../contact.html" class="profile-cta">Contact Me</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simple script to handle the hamburger menu
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
