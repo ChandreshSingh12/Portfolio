@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Tricks that Feel Like Magic: Simple Solutions for Stunning Effects</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../../image.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        /* Main Content Layout */
+        .main-container {
+            max-width: 1200px;
+            margin: 120px auto 60px;
+            padding: 0 20px;
+            display: flex;
+            gap: 30px;
+        }
+
+        /* Blog Content Styles */
+        .blog-container {
+            flex: 1;
+        }
+
+        .blog-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .blog-title {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #7d3cff, #3c9fff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .blog-content {
+            background-color: rgba(20, 20, 20, 0.7);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(125, 60, 255, 0.15);
+            border: 1px solid rgba(125, 60, 255, 0.2);
+        }
+
+        .blog-content h2 {
+            font-size: 28px;
+            margin: 30px 0 20px;
+            color: #7d3cff;
+        }
+
+        .blog-content h2:first-child {
+            margin-top: 0;
+        }
+
+        .blog-content h3 {
+            font-size: 22px;
+            margin: 25px 0 15px;
+            color: #3c9fff;
+        }
+
+        .blog-content p {
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .blog-content strong, .blog-content b {
+            color: #7d3cff;
+            font-weight: 600;
+        }
+
+        .blog-content em, .blog-content i {
+            color: #3c9fff;
+            font-style: italic;
+        }
+
+        .blog-content ul, .blog-content ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+
+        .blog-content li {
+            margin-bottom: 10px;
+        }
+
+        /* Table Styles with improved responsiveness */
+        .blog-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(125, 60, 255, 0.15);
+        }
+
+        .blog-content th {
+            background: linear-gradient(45deg, #7d3cff, #3c9fff);
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+
+        .blog-content td {
+            background-color: rgba(30, 30, 30, 0.7);
+            padding: 15px;
+            border-bottom: 1px solid rgba(125, 60, 255, 0.2);
+        }
+
+        .blog-content tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Create a scrollable container for tables on mobile */
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: 30px 0;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(125, 60, 255, 0.15);
+        }
+
+        .emoji {
+            font-size: 1.2em;
+        }
+
+        /* Profile Sidebar Styles */
+        .profile-sidebar {
+            width: 280px;
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+
+        .profile-card {
+            background-color: rgba(20, 20, 20, 0.7);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(125, 60, 255, 0.15);
+            border: 1px solid rgba(125, 60, 255, 0.2);
+            text-align: center;
+        }
+
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            border: 3px solid transparent;
+            background: linear-gradient(white, white) padding-box,
+                       linear-gradient(45deg, #7d3cff, #3c9fff) border-box;
+            overflow: hidden;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-name {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            background: linear-gradient(45deg, #7d3cff, #3c9fff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .profile-title {
+            font-size: 14px;
+            color: #aaa;
+            margin-bottom: 20px;
+        }
+
+        .profile-bio {
+            font-size: 14px;
+            margin-bottom: 25px;
+            color: #ddd;
+        }
+
+        .profile-stats {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 18px;
+            font-weight: 600;
+            color: #7d3cff;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #aaa;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .social-link {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(125, 60, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background: linear-gradient(45deg, #7d3cff, #3c9fff);
+            transform: translateY(-3px);
+        }
+
+        .profile-cta {
+            background: linear-gradient(45deg, #7d3cff, #3c9fff);
+            border: none;
+            color: white;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .profile-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(125, 60, 255, 0.4);
+        }
+
+        /* Code block styles */
+        .code-block {
+            background-color: rgba(15, 15, 15, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            border-left: 4px solid #7d3cff;
+        }
+
+        .code-block code {
+            color: #ddd;
+            line-height: 1.5;
+        }
+
+        .code-comment {
+            color: #6a9955;
+        }
+
+        .code-property {
+            color: #9cdcfe;
+        }
+
+        .code-value {
+            color: #ce9178;
+        }
+
+        .code-selector {
+            color: #d7ba7d;
+        }
+
+        .code-punctuation {
+            color: #d4d4d4;
+        }
+
+        /* Demo sections */
+        .demo-section {
+            background-color: rgba(30, 30, 30, 0.7);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .demo-title {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #3c9fff;
+        }
+
+        /* Improved Media Queries */
+        @media screen and (max-width: 1024px) {
+            .main-container {
+                flex-direction: column;
+            }
+
+            .profile-sidebar {
+                width: 100%;
+                position: static;
+                margin-bottom: 30px;
+            }
+            
+            .profile-card {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 90px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 90%;
+                background-color: rgba(20, 20, 20, 0.95);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                align-items: center;
+                padding: 20px;
+                border-radius: 20px;
+                opacity: 0;
+                pointer-events: none;
+                transition: all 0.3s ease;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+                border: 1px solid rgba(125, 60, 255, 0.2);
+            }
+
+            .nav-links.active {
+                opacity: 1;
+                pointer-events: all;
+            }
+
+            .nav-links a {
+                margin: 10px 0;
+                width: 100%;
+                text-align: center;
+            }
+
+            /* Hamburger animation */
+            .hamburger.active div:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 8px);
+                background: linear-gradient(45deg, #7d3cff, #3c9fff);
+            }
+
+            .hamburger.active div:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active div:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -8px);
+                background: linear-gradient(45deg, #7d3cff, #3c9fff);
+            }
+
+            .blog-title {
+                font-size: 32px;
+            }
+
+            .blog-content {
+                padding: 25px 20px;
+            }
+
+            .blog-content h2 {
+                font-size: 24px;
+            }
+
+            .blog-content h3 {
+                font-size: 20px;
+            }
+            
+            .blog-content ul, .blog-content ol {
+                padding-left: 20px;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            .main-container {
+                margin: 100px auto 40px;
+                padding: 0 15px;
+            }
+            
+            .blog-title {
+                font-size: 28px;
+            }
+            
+            .blog-content {
+                padding: 20px 15px;
+            }
+            
+            .blog-content h2 {
+                font-size: 22px;
+            }
+            
+            .blog-content h3 {
+                font-size: 18px;
+            }
+            
+            .blog-content p, .blog-content li {
+                font-size: 15px;
+            }
+            
+            .blog-content th, .blog-content td {
+                padding: 10px;
+                font-size: 14px;
+            }
+        }
+
+        /* Magic CSS demo styles */
+        .magic-glow {
+            padding: 15px 30px;
+            background-color: #7d3cff;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .magic-glow::before {
+            content: "";
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+            z-index: -1;
+            animation: glowing 20s linear infinite;
+            background-size: 400%;
+            border-radius: 50px;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .magic-glow:hover::before {
+            opacity: 1;
+        }
+
+        @keyframes glowing {
+            0% { background-position: 0 0; }
+            50% { background-position: 400% 0; }
+            100% { background-position: 0 0; }
+        }
+
+        .parallax-box {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(45deg, #7d3cff, #3c9fff);
+            border-radius: 10px;
+            transform-style: preserve-3d;
+            transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+            transition: transform 0.1s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(125, 60, 255, 0.3);
+        }
+
+        .scroll-indicator {
+            position: relative;
+            width: 100%;
+            height: 8px;
+            background-color: rgba(60, 60, 60, 0.5);
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .scroll-progress {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background: linear-gradient(90deg, #7d3cff, #3c9fff);
+            width: 0%;
+            border-radius: 4px;
+            transition: width 0.1s ease;
+        }
+
+        .text-reveal {
+            display: inline-block;
+            position: relative;
+            font-size: 24px;
+            font-weight: bold;
+            color: transparent;
+            background: linear-gradient(45deg, #7d3cff, #3c9fff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            cursor: pointer;
+        }
+
+        .text-reveal::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #151515;
+            transform: scaleX(1);
+            transform-origin: right;
+            transition: transform 0.5s ease;
+        }
+
+        .text-reveal:hover::before {
+            transform: scaleX(0);
+            transform-origin: left;
+        }
+        /* Improved Responsive Styles */
+@media screen and (max-width: 1024px) {
+    .main-container {
+        flex-direction: column;
+        margin: 100px auto 40px;
+    }
+
+    .profile-sidebar {
+        width: 100%;
+        position: static;
+        margin-bottom: 30px;
+    }
+    
+    .profile-card {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .blog-title {
+        font-size: 28px;
+    }
+
+    .blog-content {
+        padding: 25px 15px;
+    }
+
+    .blog-content h2 {
+        font-size: 22px;
+    }
+
+    .blog-content h3 {
+        font-size: 18px;
+    }
+    
+    .blog-content p, .blog-content li {
+        font-size: 15px;
+    }
+    
+    .demo-section {
+        padding: 15px;
+    }
+    
+    .code-block {
+        padding: 15px;
+        font-size: 14px;
+    }
+
+    /* Make parallax box and magic card smaller on mobile */
+    .parallax-box {
+        width: 160px;
+        height: 160px;
+        font-size: 14px;
+    }
+    
+    .magic-card {
+        width: 220px;
+        height: 160px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .main-container {
+        padding: 0 12px;
+    }
+    
+    .blog-title {
+        font-size: 24px;
+    }
+    
+    .blog-content h2 {
+        font-size: 20px;
+    }
+    
+    .blog-content h3 {
+        font-size: 16px;
+    }
+    
+    .blog-content table {
+        font-size: 13px;
+    }
+    
+    .profile-card {
+        padding: 20px;
+    }
+    
+    .profile-image {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+/* Touch Device Support */
+@media (hover: none), (pointer: coarse) {
+    /* Text reveal effect for touch devices */
+    .text-reveal::before {
+        animation: text-reveal-touch 3s infinite;
+    }
+    
+    @keyframes text-reveal-touch {
+        0%, 100% { transform: scaleX(1); transform-origin: right; }
+        45%, 55% { transform: scaleX(0); transform-origin: left; }
+    }
+    
+    /* Glow button effect for touch devices */
+    .magic-glow::before {
+        opacity: 0.7;
+        animation: button-glow-touch 5s infinite;
+    }
+    
+    @keyframes button-glow-touch {
+        0%, 100% { opacity: 0.3; }
+        50% { opacity: 0.8; }
+    }
+    
+    /* Auto-animate parallax for touch devices */
+    #parallaxBox {
+        animation: parallax-touch 8s infinite ease-in-out;
+    }
+    
+    @keyframes parallax-touch {
+        0%, 100% { transform: perspective(1000px) rotateX(0deg) rotateY(0deg); }
+        25% { transform: perspective(1000px) rotateX(8deg) rotateY(-8deg); }
+        50% { transform: perspective(1000px) rotateX(0deg) rotateY(8deg); }
+        75% { transform: perspective(1000px) rotateX(-8deg) rotateY(0deg); }
+    }
+    
+    /* Magic card animation for touch devices */
+    #magicCard {
+        animation: card-touch 10s infinite ease-in-out;
+    }
+    
+    @keyframes card-touch {
+        0%, 100% { 
+            transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        25% { 
+            transform: perspective(1000px) rotateX(5deg) rotateY(-5deg) translateZ(10px);
+            box-shadow: 0 20px 40px rgba(125, 60, 255, 0.2);
+        }
+        50% { 
+            transform: perspective(1000px) rotateX(-3deg) rotateY(7deg) translateZ(10px);
+            box-shadow: 0 20px 40px rgba(125, 60, 255, 0.2);
+        }
+        75% { 
+            transform: perspective(1000px) rotateX(7deg) rotateY(3deg) translateZ(10px);
+            box-shadow: 0 20px 40px rgba(125, 60, 255, 0.2);
+        }
+    }
+    
+    /* Show glow on magic card for touch devices */
+    #magicCard::before {
+        opacity: 0.5;
+        animation: card-glow-touch 8s infinite ease-in-out;
+    }
+    
+    @keyframes card-glow-touch {
+        0%, 100% { opacity: 0.2; }
+        50% { opacity: 0.7; }
+    }
+}
+
+/* Add tap/click feedback for touch devices */
+.text-reveal:active::before,
+.magic-glow:active::before,
+.parallax-box:active,
+.magic-card:active {
+    transition: all 0.1s ease !important;
+}
+
+.text-reveal:active::before {
+    transform: scaleX(0) !important;
+    transform-origin: left !important;
+}
+
+.magic-glow:active::before {
+    opacity: 1 !important;
+}
+
+/* Better scroll handling for fixed elements */
+html {
+    scroll-padding-top: 100px;
+}
+
+/* Fix navbar on small screens */
+@media screen and (max-width: 768px) {
+    .navbar {
+        height: 70px;
+    }
+    
+    .nav-container {
+        padding: 0 15px;
+    }
+    
+    .nav-links.active {
+        top: 70px;
+    }
+}
+
+/* Improve code block readability on mobile */
+@media screen and (max-width: 768px) {
+    .code-block {
+        font-size: 13px;
+    }
+    
+    .code-block code {
+        word-break: break-word;
+    }
+}
+
+/* Fix for demo sections on small screens */
+@media screen and (max-width: 480px) {
+    .demo-section {
+        padding: 15px 10px;
+    }
+}
+
+/* Add loading animations for perceived performance */
+.parallax-box, .magic-card, .text-reveal, .magic-glow {
+    will-change: transform;
+}
+
+/* Improve touch target sizes for mobile */
+@media (hover: none), (pointer: coarse) {
+    .social-link {
+        width: 44px;
+        height: 44px;
+        margin: 0 5px;
+    }
+    
+    .magic-glow {
+        padding: 12px 28px;
+        font-size: 16px;
+    }
+    
+    /* Add tap state indicator */
+    .parallax-box:active, 
+    .magic-card:active,
+    .text-reveal:active,
+    .magic-glow:active {
+        opacity: 0.8;
+    }
+}
+
+/* Fix table scrolling on mobile */
+.table-container {
+    -webkit-overflow-scrolling: touch;
+}
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo"><img src="../../image.png" width="50px" style="border-radius: 50px;"></div>
+            <div class="nav-links">
+                <a href="../../index.html">Home</a>
+                <a href="../../about.html">About</a>
+                <a href="../../projects.html">Projects</a>
+                <a href="../../skills.html">Skills</a>
+                <a href="../../contact.html">Contact</a>
+                <a href="../index.html" class="active">Blog</a>
+            </div>
+            <div class="hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content with Blog and Profile -->
+    <div class="main-container">
+        <!-- Blog Content -->
+        <div class="blog-container">
+            <div class="blog-header">
+                <h1 class="blog-title">CSS Tricks that Feel Like Magic: Simple Solutions for Stunning Effects</h1>
+            </div>
+            <div class="blog-content">
+                <p>CSS is deceptively powerful. What looks like simple styling code can create jaw-dropping effects that seem impossible without JavaScript or complex libraries. The beauty of CSS is in these magical moments when a few lines transform an ordinary element into something extraordinary. Let's explore some CSS tricks that honestly feel like magic when you first discover them!</p>
+
+                <div class="scroll-indicator">
+                    <div class="scroll-progress" id="scrollProgress"></div>
+                </div>
+
+                <h2>Pure CSS Magic: No JavaScript Required</h2>
+                <p>There's something deeply satisfying about creating complex interactions and animations with pure CSS. While JavaScript has its place, discovering you can create something amazing with CSS alone gives you that special feeling – like finding a cheat code in a video game. Let's dive into some CSS techniques that will make both you and your users go "wow!"</p>
+
+                <h3>1. Magical Text Reveal Effects</h3>
+                <p>One of my favorite CSS tricks is creating text reveal animations that trigger on hover. They create a sense of discovery and delight for users with minimal effort.</p>
+
+                <div class="demo-section">
+                    <div class="demo-title">Hover over the text below:</div>
+                    <span class="text-reveal">CSS is magical!</span>
+                </div>
+
+                <div class="code-block">
+                    <code>
+                        <span class="code-selector">.text-reveal</span> <span class="code-punctuation">{</span><br>
+                        &nbsp;&nbsp;<span class="code-property">position</span><span class="code-punctuation">:</span> <span class="code-value">relative</span><span class="code-punctuation">;</span><br>
+                        &nbsp;&nbsp;<span class="code-property">color</span><span class="code-punctuation">:</span> <span class="code-value">transparent</span><span class="code-punctuation">;</span><br>
+                        &nbsp;&nbsp;<span class="code-property">background</span><span class="code-punctuation">:</span> <span class="code-value">linear-gradient(45deg, #7d3cff, #3c9fff)</span><span class="code-punctuation">;</span><br>
+                        &nbsp;&nbsp;<span class="code-property">-webkit-background-clip</span><span class="code-punctuation">:</span> <span class="code-value">text</span><span class="code-punctuation">;</span><br>
+                        &nbsp;&nbsp;<span class="code-property">background-clip</span><span class="code-punctuation">:</span> <span class="code-value">text</span><span class="code-punctuation">;</span><br>
+                        <span class="code-punctuation">}</span><br><br>
+                        
+                        <span class="code-selector">.text-reveal::before</span> <span class="code-punctuation">{</span><br>
+                        &nbsp;&nbsp;<span class="code-property">content</span><span class="code-punctuation">:</span> <span class="code-value">""</span><span class="code-punctuation">;</span><br>
+                        &nbsp;&nbsp;<span class="code-property">position</span><span class="code-punctuation">:</span> <span class="code-value">absolute</span><span class="code-punctuation">;</span><br>
+                        &nbsp;&nbsp;<span class="code-property">top</span><span class="code-punctuation">:</span> <span class="code-value">0</span><span class="code-punctuation">;</span> <span class="code-property">left</span><span class="code-punctuation">:</span> <span class="code-value">0</span><span class="code-punctuation">;</span><br>
+                        &nbsp;&nbsp;<span class="code-property">width</span><span class="code-punctuation">:</span> <span class="code-value">100%</span><span class="code-punctuation">;</span> <span class="code-property">height</span><span class="code-punctuation">:</span> <span class="code-value">100%</span><span class="code-punctuation">;</span><br>
+                        &nbsp;&nbsp;<span class="code-property">background-color</span><span class="code-punctuation">:</span> <span class="code-value">#151515</span><span class="code-punctuation">;</span><br>
+                        &nbsp;&nbsp;<span class="code-property">transform</span><span class="code-punctuation">:</span> <span class="code-value">scaleX(1)</span><span class="code-punctuation">;</span><br>
+                        &nbsp;&nbsp;<span class="code-property">transform-origin</span><span class="code-punctuation">:</span> <span class="code-value">right</span><span class="code-punctuation">;</span><br>
+                        &nbsp;&nbsp;<span class="code-property">transition</span><span class="code-punctuation">:</span> <span class="code-value">transform 0.5s ease</span><span class="code-punctuation">;</span><br>
+                        <span class="code-punctuation">}</span><br><br>
+                        
+                        <span class="code-selector">.text-reveal:hover::before</span> <span class="code-punctuation">{</span><br>
+                        &nbsp;&nbsp;<span class="code-property">transform</span><span class="code-punctuation">:</span> <span class="code-value">scaleX(0)</span><span class="code-punctuation">;</span><br>
+                        &nbsp;&nbsp;<span class="code-property">transform-origin</span><span class="code-punctuation">:</span> <span class="code-value">left</span><span class="code-punctuation">;</span><br>
+                        <span class="code-punctuation">}</span>
+                    </code>
+                </div>
+
+                <p>The magic here happens with pseudo-elements and transforms. The text has a gradient that's clipped to the shape of the characters, while the <code>::before</code> pseudo-element acts as a cover that slides away on hover. No JavaScript required!</p>
+
+                <h3>2. Glow-Up Buttons with Animated Borders</h3>
+                <p>Create buttons that glow with rainbow borders on hover. This effect uses multiple CSS properties working together to create something that looks much more complex than it actually is.</p>
+
+                <div class="demo-section">
+                    <button class="magic-glow">Hover Me</button>
+                </div>
+
+                <div class="code-block">
+                    <code>
+                        <span class="code-selector">.magic-glow</span> <span class="code-punctuation">{</span><br>
+                        &nbsp;&nbsp;<span class="code-property">position</span><span class="code-punctuation">:</span> <span class="code-value">relative</span><span class="code-punctuation">;</span><br>
+                        &nbsp;&nbsp;<span class="code-property">z-index</span><span class="code-punctuation">:</span> <span class="code-value">1</span><span class="code-punctuation">;</span><br>
+                        &nbsp;&nbsp;<span class="code-property">overflow</span><span class="code-punctuation">:</span> <span class="code-value">hidden</span><span class="code-punctuation">;</span><br>
+                        <span class="code-punctuation">}</span><br><br>
+                        
+                        <span class="code-selector">.magic-glow::before</span> <span class="code-punctuation">{</span><br>
+                        &nbsp;&nbsp;<span class="code-property">content</span><span class="code-punctuation">:</span> <span class="code-value">""</span><span class="code-punctuation">;</span><br>
+                        &nbsp;&nbsp;<span class="code-property">position</span><span class="code-punctuation">:</span> <span class="code-value">absolute</span><span class="code-punctuation">;</span><br>
+                        &nbsp;&nbsp;<span class="code-property">top</span><span class="code-punctuation">:</span> <span class="code-value">-2px</span><span class="code-punctuation">;</span> <span class="code-property">left</span><span class="code-punctuation">:</span> <span class="code-value">-2px</span><span class="code-punctuation">;</span><br>
+                        &nbsp;&nbsp;<span class="code-property">right</span><span class="code-punctuation">:</span> <span class="code-value">-2px</span><span class="code-punctuation">;</span> <span class="code-property">bottom</span><span class="code-punctuation">:</span> <span class="code-value">-2px</span><span class="code-punctuation">;</span><br>
+                        &nbsp;&nbsp;<span class="code-property">background</span><span class="code-punctuation">:</span> <span class="code-value">linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000)</span><span class="code-punctuation">;</span><br>
+                        &nbsp;&nbsp;<span class="code-property">z-index</span><span class="code-punctuation">:</span> <span class="code-value">-1</span><span class="code-punctuation">;</span><br>
+                        &nbsp;&nbsp;<span class="code-property">animation</span><span class="code-punctuation">:</span> <span class="code-value">glowing 20s linear infinite</span><span class="code-punctuation">;</span><br>
+                        &nbsp;&nbsp;<span class="code-property">background-size</span><span class="code-punctuation">:</span> <span class="code-value">400%</span><span class="code-punctuation">;</span><br>
+                        &nbsp;&nbsp;<span class="code-property">opacity</span><span class="code-punctuation">:</span> <span class="code-value">0</span><span class="code-punctuation">;</span><br>
+                        &nbsp;&nbsp;<span class="code-property">transition</span><span class="code-punctuation">:</span> <span class="code-value">opacity 0.3s ease-in-out</span><span class="code-punctuation">;</span><br>
+                        <span class="code-punctuation">}</span><br><br>
+                        
+                        <span class="code-selector">.magic-glow:hover::before</span> <span class="code-punctuation">{</span><br>
+                        &nbsp;&nbsp;<span class="code-property">opacity</span><span class="code-punctuation">:</span> <span class="code-value">1</span><span class="code-punctuation">;</span><br>
+                        <span class="code-punctuation">}</span><br><br>
+                        
+                        <span class="code-selector">@keyframes glowing</span> <span class="code-punctuation">{</span><br>
+                        &nbsp;&nbsp;<span class="code-selector">0%</span> <span class="code-punctuation">{</span> <span class="code-property">background-position</span><span class="code-punctuation">:</span> <span class="code-value">0 0</span><span class="code-punctuation">;</span> <span class="code-punctuation">}</span><br>
+                        &nbsp;&nbsp;<span class="code-selector">50%</span> <span class="code-punctuation">{</span> <span class="code-property">background-position</span><span class="code-punctuation">:</span> <span class="code-value">400% 0</span><span class="code-punctuation">;</span> <span class="code-punctuation">}</span><br>
+                        &nbsp;&nbsp;<span class="code-selector">100%</span> <span class="code-punctuation">{</span> <span class="code-property">background-position</span><span class="code-punctuation">:</span> <span class="code-value">0 0</span><span class="code-punctuation">;</span> <span class="code-punctuation">}</span><br>
+                        <span class="code-punctuation">}</span>
+                    </code>
+                </div>
+
+                <p>The rainbow border effect combines a large gradient background with animation and clever positioning. The pseudo-element sits behind the button and only becomes visible on hover, creating that magical glow-up feeling.</p>
+
+                <h3>3. CSS-Only Parallax Effect</h3>
+                <p>You can create a mouse-tracking parallax effect without a single line of JavaScript. This technique uses CSS transforms and some clever event handling to create a 3D-like effect that follows your cursor.</p>
+
+                <div class="demo-section">
+                    <div class="parallax-box" id="parallaxBox">Hover over me!</div>
+                </div>
+
+                <div class="code-block">
+                    <code>
+                        <span class="code-selector">.parallax-box</span> <span class="code-punctuation">{</span><br>
+                        &nbsp;&nbsp;<span class="code-property">transform-style</span><span class="code-punctuation">:</span> <span class="code-value">preserve-3d</span><span class="code-punctuation">;</span><br>
+                        &nbsp;&nbsp;<span class="code-property">transform</span><span class="code-punctuation">:</span> <span class="code-value">perspective(1000px) rotateX(0deg) rotateY(0deg)</span><span class="code-punctuation">;</span><br>
+                        &nbsp;&nbsp;<span class="code-property">transition</span><span class="code-punctuation">:</span> <span class="code-value">transform 0.1s ease</span><span class="code-punctuation">;</span><br>
+                        <span class="code-punctuation">}</span>
+                    </code>
+                </div>
+
+                <p>For this one, we do need a tiny bit of JavaScript tocalculate the mouse position and apply the appropriate rotation values. Here's the tiny bit of JavaScript we need:
+
+                    <script>
+                        document.addEventListener('DOMContentLoaded', () => {
+                            const parallaxBox = document.getElementById('parallaxBox');
+                            
+                            parallaxBox.addEventListener('mousemove', (e) => {
+                                const { left, top, width, height } = parallaxBox.getBoundingClientRect();
+                                const x = e.clientX - left;
+                                const y = e.clientY - top;
+                                
+                                // Calculate rotation values based on mouse position
+                                const rotateY = ((x / width) - 0.5) * 20; // -10 to 10 degrees
+                                const rotateX = ((y / height) - 0.5) * -20; // 10 to -10 degrees
+                                
+                                // Apply the transform
+                                parallaxBox.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                            });
+                            
+                            parallaxBox.addEventListener('mouseleave', () => {
+                                parallaxBox.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+                            });
+                        });
+                    </script>
+    
+                    <p>The magic happens in the transform property. We're using CSS's 3D transform capabilities with <code>perspective</code>, <code>rotateX</code>, and <code>rotateY</code> to create a 3D effect that follows the mouse. Combined with a smooth transition, it creates an effect that delights users and adds depth to your UI.</p>
+    
+                    <h3>4. Scroll-Based Progress Indicators</h3>
+                    <p>Creating a progress bar that fills as you scroll down the page is another CSS trick that feels magical but is actually quite simple to implement.</p>
+    
+                    <div class="code-block">
+                        <code>
+                            <span class="code-selector">.scroll-indicator</span> <span class="code-punctuation">{</span><br>
+                            &nbsp;&nbsp;<span class="code-property">position</span><span class="code-punctuation">:</span> <span class="code-value">relative</span><span class="code-punctuation">;</span><br>
+                            &nbsp;&nbsp;<span class="code-property">width</span><span class="code-punctuation">:</span> <span class="code-value">100%</span><span class="code-punctuation">;</span><br>
+                            &nbsp;&nbsp;<span class="code-property">height</span><span class="code-punctuation">:</span> <span class="code-value">8px</span><span class="code-punctuation">;</span><br>
+                            &nbsp;&nbsp;<span class="code-property">background-color</span><span class="code-punctuation">:</span> <span class="code-value">rgba(60, 60, 60, 0.5)</span><span class="code-punctuation">;</span><br>
+                            <span class="code-punctuation">}</span><br><br>
+                            
+                            <span class="code-selector">.scroll-progress</span> <span class="code-punctuation">{</span><br>
+                            &nbsp;&nbsp;<span class="code-property">position</span><span class="code-punctuation">:</span> <span class="code-value">absolute</span><span class="code-punctuation">;</span><br>
+                            &nbsp;&nbsp;<span class="code-property">top</span><span class="code-punctuation">:</span> <span class="code-value">0</span><span class="code-punctuation">;</span> <span class="code-property">left</span><span class="code-punctuation">:</span> <span class="code-value">0</span><span class="code-punctuation">;</span><br>
+                            &nbsp;&nbsp;<span class="code-property">height</span><span class="code-punctuation">:</span> <span class="code-value">100%</span><span class="code-punctuation">;</span><br>
+                            &nbsp;&nbsp;<span class="code-property">background</span><span class="code-punctuation">:</span> <span class="code-value">linear-gradient(90deg, #7d3cff, #3c9fff)</span><span class="code-punctuation">;</span><br>
+                            &nbsp;&nbsp;<span class="code-property">width</span><span class="code-punctuation">:</span> <span class="code-value">0%</span><span class="code-punctuation">;</span><br>
+                            <span class="code-punctuation">}</span>
+                        </code>
+                    </div>
+    
+                    <script>
+                        document.addEventListener('DOMContentLoaded', () => {
+                            const scrollProgress = document.getElementById('scrollProgress');
+                            
+                            window.addEventListener('scroll', () => {
+                                // Calculate how far down the page the user has scrolled
+                                const scrollTop = window.scrollY;
+                                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                                const scrollPercent = (scrollTop / docHeight) * 100;
+                                
+                                // Update the width of the progress bar
+                                scrollProgress.style.width = scrollPercent + '%';
+                            });
+                        });
+                    </script>
+    
+                    <p>This effect combines a container element with a child element whose width is dynamically adjusted based on scroll position. The gradient background adds a polished touch that makes it feel more magical than its simple implementation would suggest.</p>
+    
+                    <h2>Taking CSS Magic to the Next Level</h2>
+                    <p>Now that we've seen some magical CSS effects, let's explore how we can combine multiple techniques to create even more impressive results. The true magic happens when these simple tricks work together.</p>
+    
+                    <h3>Combining Hover Effects with Transitions</h3>
+                    <p>Let's create a card that combines multiple effects: a subtle parallax tilt, a glow effect, and a smooth transition when hovered.</p>
+    
+                    <div class="demo-section" style="perspective: 1000px;">
+                        <div class="magic-card" id="magicCard">
+                            <div class="card-content">
+                                <h3>Magic Card</h3>
+                                <p>Hover to see multiple effects in action!</p>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <style>
+                        .magic-card {
+                            width: 280px;
+                            height: 180px;
+                            background: linear-gradient(135deg, #1e1e1e, #252525);
+                            border-radius: 15px;
+                            padding: 20px;
+                            position: relative;
+                            transform-style: preserve-3d;
+                            transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+                            transition: transform 0.2s ease, box-shadow 0.3s ease;
+                            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+                            overflow: hidden;
+                            cursor: pointer;
+                        }
+    
+                        .magic-card::before {
+                            content: "";
+                            position: absolute;
+                            top: -50%;
+                            left: -50%;
+                            width: 200%;
+                            height: 200%;
+                            background: radial-gradient(circle at center, rgba(125, 60, 255, 0.1), transparent 70%);
+                            opacity: 0;
+                            transition: opacity 0.3s ease;
+                        }
+    
+                        .magic-card:hover {
+                            box-shadow: 0 20px 40px rgba(125, 60, 255, 0.2);
+                        }
+    
+                        .magic-card:hover::before {
+                            opacity: 1;
+                        }
+    
+                        .card-content {
+                            position: relative;
+                            z-index: 1;
+                        }
+    
+                        .card-content h3 {
+                            margin-top: 0;
+                            margin-bottom: 10px;
+                            color: #7d3cff !important;
+                        }
+    
+                        .card-content p {
+                            margin: 0;
+                            font-size: 14px;
+                            color: #aaa;
+                        }
+                    </style>
+    
+                    <script>
+                        document.addEventListener('DOMContentLoaded', () => {
+                            const magicCard = document.getElementById('magicCard');
+                            
+                            magicCard.addEventListener('mousemove', (e) => {
+                                const { left, top, width, height } = magicCard.getBoundingClientRect();
+                                const x = e.clientX - left;
+                                const y = e.clientY - top;
+                                
+                                const rotateY = ((x / width) - 0.5) * 10;
+                                const rotateX = ((y / height) - 0.5) * -10;
+                                
+                                magicCard.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
+                            });
+                            
+                            magicCard.addEventListener('mouseleave', () => {
+                                magicCard.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
+                            });
+                        });
+                    </script>
+    
+                    <div class="code-block">
+                        <code>
+                            <span class="code-selector">.magic-card</span> <span class="code-punctuation">{</span><br>
+                            &nbsp;&nbsp;<span class="code-property">transform-style</span><span class="code-punctuation">:</span> <span class="code-value">preserve-3d</span><span class="code-punctuation">;</span><br>
+                            &nbsp;&nbsp;<span class="code-property">transition</span><span class="code-punctuation">:</span> <span class="code-value">transform 0.2s ease, box-shadow 0.3s ease</span><span class="code-punctuation">;</span><br>
+                            <span class="code-punctuation">}</span><br><br>
+                            
+                            <span class="code-selector">.magic-card::before</span> <span class="code-punctuation">{</span><br>
+                            &nbsp;&nbsp;<span class="code-property">content</span><span class="code-punctuation">:</span> <span class="code-value">""</span><span class="code-punctuation">;</span><br>
+                            &nbsp;&nbsp;<span class="code-property">background</span><span class="code-punctuation">:</span> <span class="code-value">radial-gradient(circle, rgba(125, 60, 255, 0.1), transparent 70%)</span><span class="code-punctuation">;</span><br>
+                            &nbsp;&nbsp;<span class="code-property">opacity</span><span class="code-punctuation">:</span> <span class="code-value">0</span><span class="code-punctuation">;</span><br>
+                            &nbsp;&nbsp;<span class="code-property">transition</span><span class="code-punctuation">:</span> <span class="code-value">opacity 0.3s ease</span><span class="code-punctuation">;</span><br>
+                            <span class="code-punctuation">}</span><br><br>
+                            
+                            <span class="code-selector">.magic-card:hover::before</span> <span class="code-punctuation">{</span><br>
+                            &nbsp;&nbsp;<span class="code-property">opacity</span><span class="code-punctuation">:</span> <span class="code-value">1</span><span class="code-punctuation">;</span><br>
+                            <span class="code-punctuation">}</span>
+                        </code>
+                    </div>
+    
+                    <p>This combined effect creates a truly magical experience that responds to user interaction in multiple ways. The card tilts to follow the mouse while simultaneously showing a subtle glow effect and lifting slightly off the page.</p>
+    
+                    <h2>Final Thoughts: The Magic of CSS</h2>
+                    <p>These effects may seem like magic at first glance, but they're built on solid CSS principles that anyone can learn. The real magic happens when you understand how these properties work together and start experimenting with your own combinations.</p>
+    
+                    <p>Some key takeaways to create your own CSS magic:</p>
+                    <ul>
+                        <li><strong>Master pseudo-elements</strong> like <code>::before</code> and <code>::after</code> to create layered effects</li>
+                        <li><strong>Get comfortable with transforms</strong> for creating 3D effects and animations</li>
+                        <li><strong>Use transitions wisely</strong> to create smooth and natural-feeling effects</li>
+                        <li><strong>Combine techniques</strong> to create effects greater than the sum of their parts</li>
+                    </ul>
+    
+                    <p>The best part about these CSS tricks is that they work without adding heavy JavaScript libraries or sacrificing performance. They create delightful user experiences with minimal overhead.</p>
+    
+                    <p>Ready to add some magic to your own websites? Start with these techniques and then experiment by combining them in new ways. The possibilities are endless, and the results can truly feel magical!</p>
+                </div>
+                <a href="https://x.com/SinghsChandresh" style="color: #3c9fff; display: flex; justify-content: center;">Contact me on X</a>
+            </div>
+    
+            <!-- Profile Sidebar -->
+            <div class="profile-sidebar">
+                <div class="profile-card">
+                    <div class="profile-image">
+                        <img src="../../my_ghibli_photo.png" alt="Profile picture">
+                    </div>
+                    <h2 class="profile-name">Chandresh Singh</h2>
+                    <p class="profile-title">Full Stack Developer & AI Enthusiast</p>
+                    <p class="profile-bio">Building modern web applications with a focus on AI integration. Passionate about creating intuitive user experiences.</p>
+                    
+                    <a href="../../contact.html" class="profile-cta">Contact Me</a>
+                </div>
+            </div>
+        </div>
+    
+        <script>
+            // Simple script to handle the hamburger menu
+            document.addEventListener('DOMContentLoaded', () => {
+                const hamburger = document.querySelector('.hamburger');
+                const navLinks = document.querySelector('.nav-links');
+                
+                hamburger.addEventListener('click', () => {
+                    hamburger.classList.toggle('active');
+                    navLinks.classList.toggle('active');
+                });
+            });
+        </script>
+    </body>
+    </html>
